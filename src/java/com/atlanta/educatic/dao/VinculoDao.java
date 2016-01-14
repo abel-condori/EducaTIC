@@ -22,7 +22,7 @@ public interface VinculoDao {
     public int update(Vinculo x);
 
     public int drop(Vinculo x);
-
+//dfgfs
     public List<Vinculo> findAll();
 
     public Object consultUnique(String consulta);
