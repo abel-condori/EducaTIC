@@ -26,8 +26,6 @@ import java.util.Map;
  * @author Nerio
  */
 public class PersonaService {
-    
-    
 
     PersonaDao personaDao =  new PersonaDaoImp();
 
