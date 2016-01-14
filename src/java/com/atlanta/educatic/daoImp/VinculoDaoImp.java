@@ -7,7 +7,6 @@
 package com.atlanta.educatic.daoImp;
 
 import com.atlanta.educatic.dao.VinculoDao;
-import com.atlanta.educatic.dao.VinculoDao;
 import com.atlanta.educatic.pojo.Vinculo;
 import com.atlanta.educatic.util.HibernateUtil;
 import java.util.List;

@@ -3,11 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.atlanta.educatic.daoImp;
 
-import com.atlanta.educatic.dao.InstitucionDao;
-import com.atlanta.educatic.pojo.Institucion;
+import com.atlanta.educatic.dao.HorarioDao;
+import com.atlanta.educatic.pojo.Horario;
 import com.atlanta.educatic.util.HibernateUtil;
 import java.util.List;
 import java.util.Map;
@@ -20,14 +19,14 @@ import org.hibernate.criterion.Restrictions;
 
 /**
  *
- * @author Canelzi
+ * @author Nerio
  */
-public class InstitucionDaoImp implements InstitucionDao {
+public class HorarioDaoImp implements HorarioDao {
 
     SessionFactory sesionFactory = HibernateUtil.getSessionFactory();
 
     @Override
-    public int save(Institucion x) {
+    public int save(Horario x) {
         Session sesion = sesionFactory.openSession();
         Transaction tx = sesion.beginTransaction();
 
@@ -49,12 +48,12 @@ public class InstitucionDaoImp implements InstitucionDao {
     }
 
     @Override
-    public Institucion get(int id) {
+    public Horario get(int id) {
         Session sesion = sesionFactory.openSession();
         sesion.beginTransaction().commit();
 
-        Criteria criteria = sesion.createCriteria(Institucion.class);
-        Institucion x = (Institucion) criteria.add(Restrictions.eq("id", id)).uniqueResult();
+        Criteria criteria = sesion.createCriteria(Horario.class);
+        Horario x = (Horario) criteria.add(Restrictions.eq("id", id)).uniqueResult();
 
         sesion.close();
 
@@ -62,7 +61,7 @@ public class InstitucionDaoImp implements InstitucionDao {
     }
 
     @Override
-    public int update(Institucion x) {
+    public int update(Horario x) {
         Session sesion = sesionFactory.openSession();
         Transaction tx = sesion.beginTransaction();
 
@@ -86,7 +85,7 @@ public class InstitucionDaoImp implements InstitucionDao {
     }
 
     @Override
-    public int drop(Institucion x) {
+    public int drop(Horario x) {
         Session sesion = sesionFactory.openSession();
         Transaction tx = sesion.beginTransaction();
 
@@ -108,12 +107,12 @@ public class InstitucionDaoImp implements InstitucionDao {
     }
 
     @Override
-    public List<Institucion> findAll() {
+    public List<Horario> findAll() {
         Session sesion = sesionFactory.openSession();
         sesion.beginTransaction().commit();
 
-        Criteria criteria = sesion.createCriteria(Institucion.class);
-        List<Institucion> lista = (List<Institucion>) criteria.list();
+        Criteria criteria = sesion.createCriteria(Horario.class);
+        List<Horario> lista = (List<Horario>) criteria.list();
 
         sesion.close();
 
@@ -147,15 +146,15 @@ public class InstitucionDaoImp implements InstitucionDao {
     }
 
     @Override
-    public Institucion CriteriaUnique(Map mapa) {
+    public Horario CriteriaUnique(Map mapa) {
         Session sesion = sesionFactory.openSession();
         sesion.beginTransaction().commit();
 
-        Criteria criteria = sesion.createCriteria(Institucion.class);
+        Criteria criteria = sesion.createCriteria(Horario.class);
         for (String key : (List<String>) mapa.keySet()) {
             criteria.add(Restrictions.eq(key, mapa.get(key)));
         }
-        Institucion x = (Institucion) criteria.uniqueResult();
+        Horario x = (Horario) criteria.uniqueResult();
 
         sesion.close();
         return x;
@@ -166,11 +165,11 @@ public class InstitucionDaoImp implements InstitucionDao {
         Session sesion = sesionFactory.openSession();
         sesion.beginTransaction().commit();
 
-        Criteria criteria = sesion.createCriteria(Institucion.class);
+        Criteria criteria = sesion.createCriteria(Horario.class);
         for (String key : (List<String>) mapa.keySet()) {
             criteria.add(Restrictions.eq(key, mapa.get(key)));
         }
-        List<Institucion> lista = (List<Institucion>) criteria.list();
+        List<Horario> lista = (List<Horario>) criteria.list();
 
         sesion.close();
         return lista;
