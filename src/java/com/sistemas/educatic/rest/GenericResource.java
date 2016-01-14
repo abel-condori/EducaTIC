@@ -41,7 +41,7 @@ public class GenericResource {
     @Produces(MediaType.APPLICATION_JSON)
     public String getXml() {
         //TODO return proper representation object
-        return "hola como estas nachito";
+        return "hola como estas nachitdddo";
     }
 
     /**
