@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 13, 2016 4:10:48 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="colegio" name="com.atlanta.educatic.pojo.Curso" optimistic-lock="version" table="curso">
+    <id name="id" type="int">
+      <column name="id"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="denominacion" type="string">
+      <column length="45" name="denominacion" not-null="true"/>
+    </property>
+    <property name="tipoCurso" type="byte">
+      <column name="tipoCurso" not-null="true"/>
+    </property>
+    <property name="estado" type="java.lang.Byte">
+      <column name="estado"/>
+    </property>
+    <property name="descripcion" type="string">
+      <column length="45" name="descripcion"/>
+    </property>
+    <property name="observacion" type="java.lang.Integer">
+      <column name="observacion"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="gradoCursos" table="grado_curso">
+      <key>
+        <column name="Curso_id" not-null="true"/>
+      </key>
+      <one-to-many class="com.atlanta.educatic.pojo.GradoCurso"/>
+    </set>
+  </class>
+</hibernate-mapping>

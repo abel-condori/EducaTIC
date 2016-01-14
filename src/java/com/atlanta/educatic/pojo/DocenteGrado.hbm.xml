@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 13, 2016 4:10:48 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="colegio" name="com.atlanta.educatic.pojo.DocenteGrado" optimistic-lock="version" table="docente_grado">
+    <id name="id" type="int">
+      <column name="id"/>
+      <generator class="assigned"/>
+    </id>
+    <many-to-one class="com.atlanta.educatic.pojo.Docente" fetch="select" name="docente">
+      <column name="Docente_id" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="com.atlanta.educatic.pojo.Grado" fetch="select" name="grado">
+      <column name="Grado_id" not-null="true"/>
+    </many-to-one>
+    <property name="fecha" type="date">
+      <column length="10" name="fecha" not-null="true"/>
+    </property>
+    <property name="gradoTutorId" type="int">
+      <column name="Grado_Tutor_id" not-null="true"/>
+    </property>
+    <property name="gradoTutorPersonaId" type="int">
+      <column name="Grado_Tutor_Persona_id" not-null="true"/>
+    </property>
+    <property name="gradoMatriculaId" type="int">
+      <column name="Grado_Matricula_id" not-null="true"/>
+    </property>
+  </class>
+</hibernate-mapping>

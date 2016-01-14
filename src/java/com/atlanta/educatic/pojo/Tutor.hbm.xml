@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 13, 2016 4:10:48 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="colegio" name="com.atlanta.educatic.pojo.Tutor" optimistic-lock="version" table="tutor">
+    <id name="id" type="int">
+      <column name="id"/>
+      <generator class="assigned"/>
+    </id>
+    <many-to-one class="com.atlanta.educatic.pojo.Persona" fetch="select" name="persona">
+      <column name="Persona_id" not-null="true"/>
+    </many-to-one>
+    <property name="grado" type="java.lang.Integer">
+      <column name="grado"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="grados" table="grado">
+      <key>
+        <column name="Tutor_id" not-null="true"/>
+      </key>
+      <one-to-many class="com.atlanta.educatic.pojo.Grado"/>
+    </set>
+  </class>
+</hibernate-mapping>

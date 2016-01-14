@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 13, 2016 4:10:48 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="colegio" name="com.atlanta.educatic.pojo.UsuarioPermiso" optimistic-lock="version" table="usuario_permiso">
+    <id name="id" type="int">
+      <column name="id"/>
+      <generator class="assigned"/>
+    </id>
+    <many-to-one class="com.atlanta.educatic.pojo.Permiso" fetch="select" name="permiso">
+      <column name="Permiso_id" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="com.atlanta.educatic.pojo.Usuario" fetch="select" name="usuario">
+      <column name="Usuario_id" not-null="true"/>
+    </many-to-one>
+    <property name="url" type="string">
+      <column length="65535" name="url" not-null="true"/>
+    </property>
+    <property name="estado" type="byte">
+      <column name="estado" not-null="true"/>
+    </property>
+  </class>
+</hibernate-mapping>

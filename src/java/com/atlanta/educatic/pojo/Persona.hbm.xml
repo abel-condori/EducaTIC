@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 13, 2016 4:10:48 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="colegio" name="com.atlanta.educatic.pojo.Persona" optimistic-lock="version" table="persona">
+    <id name="id" type="int">
+      <column name="id"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="nombre" type="string">
+      <column length="50" name="nombre" not-null="true"/>
+    </property>
+    <property name="apaterno" type="string">
+      <column length="45" name="aPaterno" not-null="true"/>
+    </property>
+    <property name="amaterno" type="string">
+      <column length="45" name="aMaterno" not-null="true"/>
+    </property>
+    <property name="dni" type="string">
+      <column length="8" name="dni" not-null="true"/>
+    </property>
+    <property name="direccion" type="string">
+      <column length="100" name="direccion" not-null="true"/>
+    </property>
+    <property name="edad" type="int">
+      <column name="edad" not-null="true"/>
+    </property>
+    <property name="sexo" type="byte">
+      <column name="sexo" not-null="true"/>
+    </property>
+    <property name="observacion" type="string">
+      <column length="80" name="observacion"/>
+    </property>
+    <property name="idUsuario" type="int">
+      <column name="idUsuario" not-null="true"/>
+    </property>
+    <property name="estado" type="byte">
+      <column name="estado" not-null="true"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="telefonos" table="telefono">
+      <key>
+        <column name="Persona_id" not-null="true"/>
+      </key>
+      <one-to-many class="com.atlanta.educatic.pojo.Telefono"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="tutors" table="tutor">
+      <key>
+        <column name="Persona_id" not-null="true"/>
+      </key>
+      <one-to-many class="com.atlanta.educatic.pojo.Tutor"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="apoderados" table="apoderado">
+      <key>
+        <column name="Persona_id" not-null="true"/>
+      </key>
+      <one-to-many class="com.atlanta.educatic.pojo.Apoderado"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="archivoimagens" table="archivoimagen">
+      <key>
+        <column name="Persona_id" not-null="true"/>
+      </key>
+      <one-to-many class="com.atlanta.educatic.pojo.Archivoimagen"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="usuarios" table="usuario">
+      <key>
+        <column name="Persona_id" not-null="true"/>
+      </key>
+      <one-to-many class="com.atlanta.educatic.pojo.Usuario"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="docentes" table="docente">
+      <key>
+        <column name="Persona_id" not-null="true"/>
+      </key>
+      <one-to-many class="com.atlanta.educatic.pojo.Docente"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="estudiantes" table="estudiante">
+      <key>
+        <column name="Persona_id" not-null="true"/>
+      </key>
+      <one-to-many class="com.atlanta.educatic.pojo.Estudiante"/>
+    </set>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 13, 2016 4:10:48 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="colegio" name="com.atlanta.educatic.pojo.Institucion" optimistic-lock="version" table="institucion">
+    <id name="id" type="int">
+      <column name="id"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="nombreEntidad" type="string">
+      <column length="60" name="nombreEntidad" not-null="true"/>
+    </property>
+    <property name="estado" type="byte">
+      <column name="estado" not-null="true"/>
+    </property>
+    <property name="direccion" type="string">
+      <column length="100" name="direccion" not-null="true"/>
+    </property>
+    <property name="observacion" type="string">
+      <column length="100" name="observacion"/>
+    </property>
+    <property name="telefono1" type="string">
+      <column length="12" name="telefono1"/>
+    </property>
+    <property name="telefono2" type="string">
+      <column length="12" name="telefono2"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="docentes" table="docente">
+      <key>
+        <column name="Institucion_id" not-null="true"/>
+      </key>
+      <one-to-many class="com.atlanta.educatic.pojo.Docente"/>
+    </set>
+  </class>
+</hibernate-mapping>
