@@ -1,5 +1,5 @@
 package com.atlanta.educatic.pojo;
-// Generated Jan 13, 2016 4:10:46 PM by Hibernate Tools 4.3.1
+// Generated 14/01/2016 06:39:31 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -12,6 +12,7 @@ public class Tarea  implements java.io.Serializable {
 
      private int id;
      private GradoCurso gradoCurso;
+     private Tablamaestra tablamaestra;
      private String titulo;
      private String descripcion;
      private Date fechaInicio;
@@ -30,9 +31,10 @@ public class Tarea  implements java.io.Serializable {
         this.descripcion = descripcion;
         this.idUsuario = idUsuario;
     }
-    public Tarea(int id, GradoCurso gradoCurso, String titulo, String descripcion, Date fechaInicio, Date fechaEntrega, Byte calificacion, int idUsuario) {
+    public Tarea(int id, GradoCurso gradoCurso, Tablamaestra tablamaestra, String titulo, String descripcion, Date fechaInicio, Date fechaEntrega, Byte calificacion, int idUsuario) {
        this.id = id;
        this.gradoCurso = gradoCurso;
+       this.tablamaestra = tablamaestra;
        this.titulo = titulo;
        this.descripcion = descripcion;
        this.fechaInicio = fechaInicio;
@@ -54,6 +56,13 @@ public class Tarea  implements java.io.Serializable {
     
     public void setGradoCurso(GradoCurso gradoCurso) {
         this.gradoCurso = gradoCurso;
+    }
+    public Tablamaestra getTablamaestra() {
+        return this.tablamaestra;
+    }
+    
+    public void setTablamaestra(Tablamaestra tablamaestra) {
+        this.tablamaestra = tablamaestra;
     }
     public String getTitulo() {
         return this.titulo;

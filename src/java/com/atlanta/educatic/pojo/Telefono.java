@@ -1,5 +1,5 @@
 package com.atlanta.educatic.pojo;
-// Generated Jan 13, 2016 4:10:46 PM by Hibernate Tools 4.3.1
+// Generated 14/01/2016 06:39:31 PM by Hibernate Tools 4.3.1
 
 
 

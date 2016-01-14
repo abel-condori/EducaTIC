@@ -1,5 +1,5 @@
 package com.atlanta.educatic.pojo;
-// Generated Jan 13, 2016 4:10:46 PM by Hibernate Tools 4.3.1
+// Generated 14/01/2016 06:39:31 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -16,6 +16,7 @@ public class Matricula  implements java.io.Serializable {
      private Apoderado apoderado;
      private Estudiante estudiante;
      private Modalidadingreso modalidadingreso;
+     private Tablamaestra tablamaestra;
      private Date fecha;
      private int idUsuario;
      private Set grados = new HashSet(0);
@@ -31,11 +32,12 @@ public class Matricula  implements java.io.Serializable {
         this.modalidadingreso = modalidadingreso;
         this.idUsuario = idUsuario;
     }
-    public Matricula(int id, Apoderado apoderado, Estudiante estudiante, Modalidadingreso modalidadingreso, Date fecha, int idUsuario, Set grados) {
+    public Matricula(int id, Apoderado apoderado, Estudiante estudiante, Modalidadingreso modalidadingreso, Tablamaestra tablamaestra, Date fecha, int idUsuario, Set grados) {
        this.id = id;
        this.apoderado = apoderado;
        this.estudiante = estudiante;
        this.modalidadingreso = modalidadingreso;
+       this.tablamaestra = tablamaestra;
        this.fecha = fecha;
        this.idUsuario = idUsuario;
        this.grados = grados;
@@ -68,6 +70,13 @@ public class Matricula  implements java.io.Serializable {
     
     public void setModalidadingreso(Modalidadingreso modalidadingreso) {
         this.modalidadingreso = modalidadingreso;
+    }
+    public Tablamaestra getTablamaestra() {
+        return this.tablamaestra;
+    }
+    
+    public void setTablamaestra(Tablamaestra tablamaestra) {
+        this.tablamaestra = tablamaestra;
     }
     public Date getFecha() {
         return this.fecha;

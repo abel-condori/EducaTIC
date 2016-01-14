@@ -1,29 +1,30 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Jan 13, 2016 4:10:48 PM by Hibernate Tools 4.3.1 -->
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 14/01/2016 06:39:33 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-  <class catalog="colegio" name="com.atlanta.educatic.pojo.Vinculo" optimistic-lock="version" table="vinculo">
-    <id name="id" type="int">
-      <column name="id"/>
-      <generator class="assigned"/>
-    </id>
-    <property name="denominacion" type="string">
-      <column length="30" name="denominacion" not-null="true"/>
-    </property>
-    <property name="estado" type="byte">
-      <column name="estado" not-null="true"/>
-    </property>
-    <property name="descripcion" type="string">
-      <column length="45" name="descripcion"/>
-    </property>
-    <property name="observacion" type="string">
-      <column length="80" name="observacion"/>
-    </property>
-    <set fetch="select" inverse="true" lazy="true" name="apoderados" table="apoderado">
-      <key>
-        <column name="Vinculo_id" not-null="true"/>
-      </key>
-      <one-to-many class="com.atlanta.educatic.pojo.Apoderado"/>
-    </set>
-  </class>
+    <class name="com.atlanta.educatic.pojo.Vinculo" table="vinculo" catalog="colegiodb" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="tablamaestra" class="com.atlanta.educatic.pojo.Tablamaestra" fetch="select">
+            <column name="estado" not-null="true" />
+        </many-to-one>
+        <property name="denominacion" type="string">
+            <column name="denominacion" length="30" not-null="true" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="45" />
+        </property>
+        <property name="observacion" type="string">
+            <column name="observacion" length="80" />
+        </property>
+        <set name="apoderados" table="apoderado" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Vinculo_id" not-null="true" />
+            </key>
+            <one-to-many class="com.atlanta.educatic.pojo.Apoderado" />
+        </set>
+    </class>
 </hibernate-mapping>

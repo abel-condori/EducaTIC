@@ -1,5 +1,5 @@
 package com.atlanta.educatic.pojo;
-// Generated Jan 13, 2016 4:10:46 PM by Hibernate Tools 4.3.1
+// Generated 14/01/2016 06:39:31 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -12,8 +12,8 @@ public class Institucion  implements java.io.Serializable {
 
 
      private int id;
+     private Tablamaestra tablamaestra;
      private String nombreEntidad;
-     private byte estado;
      private String direccion;
      private String observacion;
      private String telefono1;
@@ -24,16 +24,16 @@ public class Institucion  implements java.io.Serializable {
     }
 
 	
-    public Institucion(int id, String nombreEntidad, byte estado, String direccion) {
+    public Institucion(int id, Tablamaestra tablamaestra, String nombreEntidad, String direccion) {
         this.id = id;
+        this.tablamaestra = tablamaestra;
         this.nombreEntidad = nombreEntidad;
-        this.estado = estado;
         this.direccion = direccion;
     }
-    public Institucion(int id, String nombreEntidad, byte estado, String direccion, String observacion, String telefono1, String telefono2, Set docentes) {
+    public Institucion(int id, Tablamaestra tablamaestra, String nombreEntidad, String direccion, String observacion, String telefono1, String telefono2, Set docentes) {
        this.id = id;
+       this.tablamaestra = tablamaestra;
        this.nombreEntidad = nombreEntidad;
-       this.estado = estado;
        this.direccion = direccion;
        this.observacion = observacion;
        this.telefono1 = telefono1;
@@ -48,19 +48,19 @@ public class Institucion  implements java.io.Serializable {
     public void setId(int id) {
         this.id = id;
     }
+    public Tablamaestra getTablamaestra() {
+        return this.tablamaestra;
+    }
+    
+    public void setTablamaestra(Tablamaestra tablamaestra) {
+        this.tablamaestra = tablamaestra;
+    }
     public String getNombreEntidad() {
         return this.nombreEntidad;
     }
     
     public void setNombreEntidad(String nombreEntidad) {
         this.nombreEntidad = nombreEntidad;
-    }
-    public byte getEstado() {
-        return this.estado;
-    }
-    
-    public void setEstado(byte estado) {
-        this.estado = estado;
     }
     public String getDireccion() {
         return this.direccion;

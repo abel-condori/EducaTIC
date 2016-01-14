@@ -1,5 +1,5 @@
 package com.atlanta.educatic.pojo;
-// Generated Jan 13, 2016 4:10:46 PM by Hibernate Tools 4.3.1
+// Generated 14/01/2016 06:39:31 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -13,6 +13,7 @@ public class Tutor  implements java.io.Serializable {
 
      private int id;
      private Persona persona;
+     private Tablamaestra tablamaestra;
      private Integer grado;
      private Set grados = new HashSet(0);
 
@@ -24,9 +25,10 @@ public class Tutor  implements java.io.Serializable {
         this.id = id;
         this.persona = persona;
     }
-    public Tutor(int id, Persona persona, Integer grado, Set grados) {
+    public Tutor(int id, Persona persona, Tablamaestra tablamaestra, Integer grado, Set grados) {
        this.id = id;
        this.persona = persona;
+       this.tablamaestra = tablamaestra;
        this.grado = grado;
        this.grados = grados;
     }
@@ -44,6 +46,13 @@ public class Tutor  implements java.io.Serializable {
     
     public void setPersona(Persona persona) {
         this.persona = persona;
+    }
+    public Tablamaestra getTablamaestra() {
+        return this.tablamaestra;
+    }
+    
+    public void setTablamaestra(Tablamaestra tablamaestra) {
+        this.tablamaestra = tablamaestra;
     }
     public Integer getGrado() {
         return this.grado;

@@ -1,5 +1,5 @@
 package com.atlanta.educatic.pojo;
-// Generated Jan 13, 2016 4:10:46 PM by Hibernate Tools 4.3.1
+// Generated 14/01/2016 06:39:31 PM by Hibernate Tools 4.3.1
 
 
 
@@ -11,11 +11,11 @@ public class Rendimiento  implements java.io.Serializable {
 
      private int id;
      private GradoCurso gradoCurso;
+     private Tablamaestra tablamaestra;
      private Byte promedio1;
      private Byte promedio2;
      private Byte promedio3;
      private Byte promedioFinal;
-     private Byte estado;
      private String observacion;
      private int idUsuario;
 
@@ -28,14 +28,14 @@ public class Rendimiento  implements java.io.Serializable {
         this.gradoCurso = gradoCurso;
         this.idUsuario = idUsuario;
     }
-    public Rendimiento(int id, GradoCurso gradoCurso, Byte promedio1, Byte promedio2, Byte promedio3, Byte promedioFinal, Byte estado, String observacion, int idUsuario) {
+    public Rendimiento(int id, GradoCurso gradoCurso, Tablamaestra tablamaestra, Byte promedio1, Byte promedio2, Byte promedio3, Byte promedioFinal, String observacion, int idUsuario) {
        this.id = id;
        this.gradoCurso = gradoCurso;
+       this.tablamaestra = tablamaestra;
        this.promedio1 = promedio1;
        this.promedio2 = promedio2;
        this.promedio3 = promedio3;
        this.promedioFinal = promedioFinal;
-       this.estado = estado;
        this.observacion = observacion;
        this.idUsuario = idUsuario;
     }
@@ -53,6 +53,13 @@ public class Rendimiento  implements java.io.Serializable {
     
     public void setGradoCurso(GradoCurso gradoCurso) {
         this.gradoCurso = gradoCurso;
+    }
+    public Tablamaestra getTablamaestra() {
+        return this.tablamaestra;
+    }
+    
+    public void setTablamaestra(Tablamaestra tablamaestra) {
+        this.tablamaestra = tablamaestra;
     }
     public Byte getPromedio1() {
         return this.promedio1;
@@ -81,13 +88,6 @@ public class Rendimiento  implements java.io.Serializable {
     
     public void setPromedioFinal(Byte promedioFinal) {
         this.promedioFinal = promedioFinal;
-    }
-    public Byte getEstado() {
-        return this.estado;
-    }
-    
-    public void setEstado(Byte estado) {
-        this.estado = estado;
     }
     public String getObservacion() {
         return this.observacion;

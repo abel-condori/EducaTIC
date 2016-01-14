@@ -1,5 +1,5 @@
 package com.atlanta.educatic.pojo;
-// Generated Jan 13, 2016 4:10:46 PM by Hibernate Tools 4.3.1
+// Generated 14/01/2016 06:39:31 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -12,6 +12,7 @@ public class Persona  implements java.io.Serializable {
 
 
      private int id;
+     private Tablamaestra tablamaestra;
      private String nombre;
      private String apaterno;
      private String amaterno;
@@ -21,21 +22,21 @@ public class Persona  implements java.io.Serializable {
      private byte sexo;
      private String observacion;
      private int idUsuario;
-     private byte estado;
-     private Set telefonos = new HashSet(0);
-     private Set tutors = new HashSet(0);
-     private Set apoderados = new HashSet(0);
-     private Set archivoimagens = new HashSet(0);
-     private Set usuarios = new HashSet(0);
-     private Set docentes = new HashSet(0);
      private Set estudiantes = new HashSet(0);
+     private Set telefonos = new HashSet(0);
+     private Set docentes = new HashSet(0);
+     private Set archivoimagens = new HashSet(0);
+     private Set apoderados = new HashSet(0);
+     private Set usuarios = new HashSet(0);
+     private Set tutors = new HashSet(0);
 
     public Persona() {
     }
 
 	
-    public Persona(int id, String nombre, String apaterno, String amaterno, String dni, String direccion, int edad, byte sexo, int idUsuario, byte estado) {
+    public Persona(int id, Tablamaestra tablamaestra, String nombre, String apaterno, String amaterno, String dni, String direccion, int edad, byte sexo, int idUsuario) {
         this.id = id;
+        this.tablamaestra = tablamaestra;
         this.nombre = nombre;
         this.apaterno = apaterno;
         this.amaterno = amaterno;
@@ -44,10 +45,10 @@ public class Persona  implements java.io.Serializable {
         this.edad = edad;
         this.sexo = sexo;
         this.idUsuario = idUsuario;
-        this.estado = estado;
     }
-    public Persona(int id, String nombre, String apaterno, String amaterno, String dni, String direccion, int edad, byte sexo, String observacion, int idUsuario, byte estado, Set telefonos, Set tutors, Set apoderados, Set archivoimagens, Set usuarios, Set docentes, Set estudiantes) {
+    public Persona(int id, Tablamaestra tablamaestra, String nombre, String apaterno, String amaterno, String dni, String direccion, int edad, byte sexo, String observacion, int idUsuario, Set estudiantes, Set telefonos, Set docentes, Set archivoimagens, Set apoderados, Set usuarios, Set tutors) {
        this.id = id;
+       this.tablamaestra = tablamaestra;
        this.nombre = nombre;
        this.apaterno = apaterno;
        this.amaterno = amaterno;
@@ -57,14 +58,13 @@ public class Persona  implements java.io.Serializable {
        this.sexo = sexo;
        this.observacion = observacion;
        this.idUsuario = idUsuario;
-       this.estado = estado;
-       this.telefonos = telefonos;
-       this.tutors = tutors;
-       this.apoderados = apoderados;
-       this.archivoimagens = archivoimagens;
-       this.usuarios = usuarios;
-       this.docentes = docentes;
        this.estudiantes = estudiantes;
+       this.telefonos = telefonos;
+       this.docentes = docentes;
+       this.archivoimagens = archivoimagens;
+       this.apoderados = apoderados;
+       this.usuarios = usuarios;
+       this.tutors = tutors;
     }
    
     public int getId() {
@@ -73,6 +73,13 @@ public class Persona  implements java.io.Serializable {
     
     public void setId(int id) {
         this.id = id;
+    }
+    public Tablamaestra getTablamaestra() {
+        return this.tablamaestra;
+    }
+    
+    public void setTablamaestra(Tablamaestra tablamaestra) {
+        this.tablamaestra = tablamaestra;
     }
     public String getNombre() {
         return this.nombre;
@@ -137,12 +144,12 @@ public class Persona  implements java.io.Serializable {
     public void setIdUsuario(int idUsuario) {
         this.idUsuario = idUsuario;
     }
-    public byte getEstado() {
-        return this.estado;
+    public Set getEstudiantes() {
+        return this.estudiantes;
     }
     
-    public void setEstado(byte estado) {
-        this.estado = estado;
+    public void setEstudiantes(Set estudiantes) {
+        this.estudiantes = estudiantes;
     }
     public Set getTelefonos() {
         return this.telefonos;
@@ -151,19 +158,12 @@ public class Persona  implements java.io.Serializable {
     public void setTelefonos(Set telefonos) {
         this.telefonos = telefonos;
     }
-    public Set getTutors() {
-        return this.tutors;
+    public Set getDocentes() {
+        return this.docentes;
     }
     
-    public void setTutors(Set tutors) {
-        this.tutors = tutors;
-    }
-    public Set getApoderados() {
-        return this.apoderados;
-    }
-    
-    public void setApoderados(Set apoderados) {
-        this.apoderados = apoderados;
+    public void setDocentes(Set docentes) {
+        this.docentes = docentes;
     }
     public Set getArchivoimagens() {
         return this.archivoimagens;
@@ -172,6 +172,13 @@ public class Persona  implements java.io.Serializable {
     public void setArchivoimagens(Set archivoimagens) {
         this.archivoimagens = archivoimagens;
     }
+    public Set getApoderados() {
+        return this.apoderados;
+    }
+    
+    public void setApoderados(Set apoderados) {
+        this.apoderados = apoderados;
+    }
     public Set getUsuarios() {
         return this.usuarios;
     }
@@ -179,19 +186,12 @@ public class Persona  implements java.io.Serializable {
     public void setUsuarios(Set usuarios) {
         this.usuarios = usuarios;
     }
-    public Set getDocentes() {
-        return this.docentes;
+    public Set getTutors() {
+        return this.tutors;
     }
     
-    public void setDocentes(Set docentes) {
-        this.docentes = docentes;
-    }
-    public Set getEstudiantes() {
-        return this.estudiantes;
-    }
-    
-    public void setEstudiantes(Set estudiantes) {
-        this.estudiantes = estudiantes;
+    public void setTutors(Set tutors) {
+        this.tutors = tutors;
     }
 
 

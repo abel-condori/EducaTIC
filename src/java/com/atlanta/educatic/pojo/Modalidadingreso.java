@@ -1,5 +1,5 @@
 package com.atlanta.educatic.pojo;
-// Generated Jan 13, 2016 4:10:46 PM by Hibernate Tools 4.3.1
+// Generated 14/01/2016 06:39:31 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -12,10 +12,10 @@ public class Modalidadingreso  implements java.io.Serializable {
 
 
      private int id;
+     private Tablamaestra tablamaestra;
      private String denominacion;
      private String descripcion;
      private String observacion;
-     private Byte estado;
      private Set matriculas = new HashSet(0);
 
     public Modalidadingreso() {
@@ -25,12 +25,12 @@ public class Modalidadingreso  implements java.io.Serializable {
     public Modalidadingreso(int id) {
         this.id = id;
     }
-    public Modalidadingreso(int id, String denominacion, String descripcion, String observacion, Byte estado, Set matriculas) {
+    public Modalidadingreso(int id, Tablamaestra tablamaestra, String denominacion, String descripcion, String observacion, Set matriculas) {
        this.id = id;
+       this.tablamaestra = tablamaestra;
        this.denominacion = denominacion;
        this.descripcion = descripcion;
        this.observacion = observacion;
-       this.estado = estado;
        this.matriculas = matriculas;
     }
    
@@ -40,6 +40,13 @@ public class Modalidadingreso  implements java.io.Serializable {
     
     public void setId(int id) {
         this.id = id;
+    }
+    public Tablamaestra getTablamaestra() {
+        return this.tablamaestra;
+    }
+    
+    public void setTablamaestra(Tablamaestra tablamaestra) {
+        this.tablamaestra = tablamaestra;
     }
     public String getDenominacion() {
         return this.denominacion;
@@ -61,13 +68,6 @@ public class Modalidadingreso  implements java.io.Serializable {
     
     public void setObservacion(String observacion) {
         this.observacion = observacion;
-    }
-    public Byte getEstado() {
-        return this.estado;
-    }
-    
-    public void setEstado(Byte estado) {
-        this.estado = estado;
     }
     public Set getMatriculas() {
         return this.matriculas;

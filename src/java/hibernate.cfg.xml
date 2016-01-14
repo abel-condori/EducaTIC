@@ -4,31 +4,30 @@
   <session-factory>
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/colegio?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.url">jdbc:mysql://nerio-pc:3307/colegiodb</property>
     <property name="hibernate.connection.username">root</property>
-    <property name="hibernate.connection.password">admin</property>
-    <property name="hibernate.show_sql">true</property>
-    <property name="hibernate.current_session_context_class">thread</property>
-    <mapping resource="com/atlanta/educatic/pojo/Institucion.hbm.xml"/>
+    <property name="hibernate.connection.password">12345</property>
+    <mapping resource="com/atlanta/educatic/pojo/Tablamaestra.hbm.xml"/>
+    <mapping resource="com/atlanta/educatic/pojo/Curso.hbm.xml"/>
+    <mapping resource="com/atlanta/educatic/pojo/GradoCurso.hbm.xml"/>
+    <mapping resource="com/atlanta/educatic/pojo/Tutor.hbm.xml"/>
+    <mapping resource="com/atlanta/educatic/pojo/DocenteGrado.hbm.xml"/>
+    <mapping resource="com/atlanta/educatic/pojo/Tarea.hbm.xml"/>
+    <mapping resource="com/atlanta/educatic/pojo/Horario.hbm.xml"/>
+    <mapping resource="com/atlanta/educatic/pojo/Apoderado.hbm.xml"/>
+    <mapping resource="com/atlanta/educatic/pojo/Modalidadingreso.hbm.xml"/>
+    <mapping resource="com/atlanta/educatic/pojo/Vinculo.hbm.xml"/>
+    <mapping resource="com/atlanta/educatic/pojo/Persona.hbm.xml"/>
+    <mapping resource="com/atlanta/educatic/pojo/Permiso.hbm.xml"/>
+    <mapping resource="com/atlanta/educatic/pojo/UsuarioPermiso.hbm.xml"/>
+    <mapping resource="com/atlanta/educatic/pojo/Archivoimagen.hbm.xml"/>
+    <mapping resource="com/atlanta/educatic/pojo/Rendimiento.hbm.xml"/>
     <mapping resource="com/atlanta/educatic/pojo/Grado.hbm.xml"/>
     <mapping resource="com/atlanta/educatic/pojo/Telefono.hbm.xml"/>
-    <mapping resource="com/atlanta/educatic/pojo/Archivoimagen.hbm.xml"/>
     <mapping resource="com/atlanta/educatic/pojo/Usuario.hbm.xml"/>
-    <mapping resource="com/atlanta/educatic/pojo/Curso.hbm.xml"/>
-    <mapping resource="com/atlanta/educatic/pojo/Rendimiento.hbm.xml"/>
-    <mapping resource="com/atlanta/educatic/pojo/GradoCurso.hbm.xml"/>
-    <mapping resource="com/atlanta/educatic/pojo/Modalidadingreso.hbm.xml"/>
-    <mapping resource="com/atlanta/educatic/pojo/Estudiante.hbm.xml"/>
-    <mapping resource="com/atlanta/educatic/pojo/Apoderado.hbm.xml"/>
-    <mapping resource="com/atlanta/educatic/pojo/DocenteGrado.hbm.xml"/>
-    <mapping resource="com/atlanta/educatic/pojo/Tutor.hbm.xml"/>
-    <mapping resource="com/atlanta/educatic/pojo/Vinculo.hbm.xml"/>
-    <mapping resource="com/atlanta/educatic/pojo/Matricula.hbm.xml"/>
-    <mapping resource="com/atlanta/educatic/pojo/Permiso.hbm.xml"/>
-    <mapping resource="com/atlanta/educatic/pojo/Persona.hbm.xml"/>
     <mapping resource="com/atlanta/educatic/pojo/Docente.hbm.xml"/>
-    <mapping resource="com/atlanta/educatic/pojo/Horario.hbm.xml"/>
-    <mapping resource="com/atlanta/educatic/pojo/UsuarioPermiso.hbm.xml"/>
-    <mapping resource="com/atlanta/educatic/pojo/Tarea.hbm.xml"/>
+    <mapping resource="com/atlanta/educatic/pojo/Matricula.hbm.xml"/>
+    <mapping resource="com/atlanta/educatic/pojo/Institucion.hbm.xml"/>
+    <mapping resource="com/atlanta/educatic/pojo/Estudiante.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

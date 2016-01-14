@@ -1,35 +1,36 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Jan 13, 2016 4:10:48 PM by Hibernate Tools 4.3.1 -->
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 14/01/2016 06:39:33 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-  <class catalog="colegio" name="com.atlanta.educatic.pojo.Rendimiento" optimistic-lock="version" table="rendimiento">
-    <id name="id" type="int">
-      <column name="id"/>
-      <generator class="assigned"/>
-    </id>
-    <many-to-one class="com.atlanta.educatic.pojo.GradoCurso" fetch="select" name="gradoCurso">
-      <column name="Grado_Curso_id" not-null="true"/>
-    </many-to-one>
-    <property name="promedio1" type="java.lang.Byte">
-      <column name="promedio1"/>
-    </property>
-    <property name="promedio2" type="java.lang.Byte">
-      <column name="promedio2"/>
-    </property>
-    <property name="promedio3" type="java.lang.Byte">
-      <column name="promedio3"/>
-    </property>
-    <property name="promedioFinal" type="java.lang.Byte">
-      <column name="promedioFinal"/>
-    </property>
-    <property name="estado" type="java.lang.Byte">
-      <column name="estado"/>
-    </property>
-    <property name="observacion" type="string">
-      <column length="45" name="observacion"/>
-    </property>
-    <property name="idUsuario" type="int">
-      <column name="idUsuario" not-null="true"/>
-    </property>
-  </class>
+    <class name="com.atlanta.educatic.pojo.Rendimiento" table="rendimiento" catalog="colegiodb" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="gradoCurso" class="com.atlanta.educatic.pojo.GradoCurso" fetch="select">
+            <column name="Grado_Curso_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tablamaestra" class="com.atlanta.educatic.pojo.Tablamaestra" fetch="select">
+            <column name="estado" />
+        </many-to-one>
+        <property name="promedio1" type="java.lang.Byte">
+            <column name="promedio1" />
+        </property>
+        <property name="promedio2" type="java.lang.Byte">
+            <column name="promedio2" />
+        </property>
+        <property name="promedio3" type="java.lang.Byte">
+            <column name="promedio3" />
+        </property>
+        <property name="promedioFinal" type="java.lang.Byte">
+            <column name="promedioFinal" />
+        </property>
+        <property name="observacion" type="string">
+            <column name="observacion" length="45" />
+        </property>
+        <property name="idUsuario" type="int">
+            <column name="idUsuario" not-null="true" />
+        </property>
+    </class>
 </hibernate-mapping>

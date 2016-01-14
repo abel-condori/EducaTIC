@@ -1,23 +1,24 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Jan 13, 2016 4:10:48 PM by Hibernate Tools 4.3.1 -->
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 14/01/2016 06:39:33 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-  <class catalog="colegio" name="com.atlanta.educatic.pojo.UsuarioPermiso" optimistic-lock="version" table="usuario_permiso">
-    <id name="id" type="int">
-      <column name="id"/>
-      <generator class="assigned"/>
-    </id>
-    <many-to-one class="com.atlanta.educatic.pojo.Permiso" fetch="select" name="permiso">
-      <column name="Permiso_id" not-null="true"/>
-    </many-to-one>
-    <many-to-one class="com.atlanta.educatic.pojo.Usuario" fetch="select" name="usuario">
-      <column name="Usuario_id" not-null="true"/>
-    </many-to-one>
-    <property name="url" type="string">
-      <column length="65535" name="url" not-null="true"/>
-    </property>
-    <property name="estado" type="byte">
-      <column name="estado" not-null="true"/>
-    </property>
-  </class>
+    <class name="com.atlanta.educatic.pojo.UsuarioPermiso" table="usuario_permiso" catalog="colegiodb" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="permiso" class="com.atlanta.educatic.pojo.Permiso" fetch="select">
+            <column name="Permiso_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tablamaestra" class="com.atlanta.educatic.pojo.Tablamaestra" fetch="select">
+            <column name="estado" not-null="true" />
+        </many-to-one>
+        <many-to-one name="usuario" class="com.atlanta.educatic.pojo.Usuario" fetch="select">
+            <column name="Usuario_id" not-null="true" />
+        </many-to-one>
+        <property name="url" type="string">
+            <column name="url" length="65535" not-null="true" />
+        </property>
+    </class>
 </hibernate-mapping>

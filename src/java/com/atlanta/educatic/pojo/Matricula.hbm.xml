@@ -1,32 +1,36 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Jan 13, 2016 4:10:48 PM by Hibernate Tools 4.3.1 -->
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 14/01/2016 06:39:33 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-  <class catalog="colegio" name="com.atlanta.educatic.pojo.Matricula" optimistic-lock="version" table="matricula">
-    <id name="id" type="int">
-      <column name="id"/>
-      <generator class="assigned"/>
-    </id>
-    <many-to-one class="com.atlanta.educatic.pojo.Apoderado" fetch="select" name="apoderado">
-      <column name="Apoderado_id" not-null="true"/>
-    </many-to-one>
-    <many-to-one class="com.atlanta.educatic.pojo.Estudiante" fetch="select" name="estudiante">
-      <column name="Estudiante_id" not-null="true"/>
-    </many-to-one>
-    <many-to-one class="com.atlanta.educatic.pojo.Modalidadingreso" fetch="select" name="modalidadingreso">
-      <column name="ModalidadIngreso_id" not-null="true"/>
-    </many-to-one>
-    <property name="fecha" type="timestamp">
-      <column length="19" name="fecha"/>
-    </property>
-    <property name="idUsuario" type="int">
-      <column name="idUsuario" not-null="true"/>
-    </property>
-    <set fetch="select" inverse="true" lazy="true" name="grados" table="grado">
-      <key>
-        <column name="Matricula_id" not-null="true"/>
-      </key>
-      <one-to-many class="com.atlanta.educatic.pojo.Grado"/>
-    </set>
-  </class>
+    <class name="com.atlanta.educatic.pojo.Matricula" table="matricula" catalog="colegiodb" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="apoderado" class="com.atlanta.educatic.pojo.Apoderado" fetch="select">
+            <column name="Apoderado_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="estudiante" class="com.atlanta.educatic.pojo.Estudiante" fetch="select">
+            <column name="Estudiante_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="modalidadingreso" class="com.atlanta.educatic.pojo.Modalidadingreso" fetch="select">
+            <column name="ModalidadIngreso_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tablamaestra" class="com.atlanta.educatic.pojo.Tablamaestra" fetch="select">
+            <column name="estado" />
+        </many-to-one>
+        <property name="fecha" type="timestamp">
+            <column name="fecha" length="19" />
+        </property>
+        <property name="idUsuario" type="int">
+            <column name="idUsuario" not-null="true" />
+        </property>
+        <set name="grados" table="grado" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Matricula_id" not-null="true" />
+            </key>
+            <one-to-many class="com.atlanta.educatic.pojo.Grado" />
+        </set>
+    </class>
 </hibernate-mapping>

@@ -1,5 +1,5 @@
 package com.atlanta.educatic.pojo;
-// Generated Jan 13, 2016 4:10:46 PM by Hibernate Tools 4.3.1
+// Generated 14/01/2016 06:39:31 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -12,9 +12,9 @@ public class Curso  implements java.io.Serializable {
 
 
      private int id;
+     private Tablamaestra tablamaestraByEstado;
+     private Tablamaestra tablamaestraByTipoCurso;
      private String denominacion;
-     private byte tipoCurso;
-     private Byte estado;
      private String descripcion;
      private Integer observacion;
      private Set gradoCursos = new HashSet(0);
@@ -23,16 +23,16 @@ public class Curso  implements java.io.Serializable {
     }
 
 	
-    public Curso(int id, String denominacion, byte tipoCurso) {
+    public Curso(int id, Tablamaestra tablamaestraByTipoCurso, String denominacion) {
         this.id = id;
+        this.tablamaestraByTipoCurso = tablamaestraByTipoCurso;
         this.denominacion = denominacion;
-        this.tipoCurso = tipoCurso;
     }
-    public Curso(int id, String denominacion, byte tipoCurso, Byte estado, String descripcion, Integer observacion, Set gradoCursos) {
+    public Curso(int id, Tablamaestra tablamaestraByEstado, Tablamaestra tablamaestraByTipoCurso, String denominacion, String descripcion, Integer observacion, Set gradoCursos) {
        this.id = id;
+       this.tablamaestraByEstado = tablamaestraByEstado;
+       this.tablamaestraByTipoCurso = tablamaestraByTipoCurso;
        this.denominacion = denominacion;
-       this.tipoCurso = tipoCurso;
-       this.estado = estado;
        this.descripcion = descripcion;
        this.observacion = observacion;
        this.gradoCursos = gradoCursos;
@@ -45,26 +45,26 @@ public class Curso  implements java.io.Serializable {
     public void setId(int id) {
         this.id = id;
     }
+    public Tablamaestra getTablamaestraByEstado() {
+        return this.tablamaestraByEstado;
+    }
+    
+    public void setTablamaestraByEstado(Tablamaestra tablamaestraByEstado) {
+        this.tablamaestraByEstado = tablamaestraByEstado;
+    }
+    public Tablamaestra getTablamaestraByTipoCurso() {
+        return this.tablamaestraByTipoCurso;
+    }
+    
+    public void setTablamaestraByTipoCurso(Tablamaestra tablamaestraByTipoCurso) {
+        this.tablamaestraByTipoCurso = tablamaestraByTipoCurso;
+    }
     public String getDenominacion() {
         return this.denominacion;
     }
     
     public void setDenominacion(String denominacion) {
         this.denominacion = denominacion;
-    }
-    public byte getTipoCurso() {
-        return this.tipoCurso;
-    }
-    
-    public void setTipoCurso(byte tipoCurso) {
-        this.tipoCurso = tipoCurso;
-    }
-    public Byte getEstado() {
-        return this.estado;
-    }
-    
-    public void setEstado(Byte estado) {
-        this.estado = estado;
     }
     public String getDescripcion() {
         return this.descripcion;

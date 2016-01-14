@@ -1,0 +1,132 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 14/01/2016 06:39:33 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.atlanta.educatic.pojo.Tablamaestra" table="tablamaestra" catalog="colegiodb" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <property name="idTabla" type="int">
+            <column name="idTabla" not-null="true" />
+        </property>
+        <property name="idItem" type="int">
+            <column name="idItem" not-null="true" />
+        </property>
+        <property name="denominacion" type="string">
+            <column name="denominacion" not-null="true" />
+        </property>
+        <property name="estado" type="string">
+            <column name="estado" />
+        </property>
+        <property name="abreviatura" type="string">
+            <column name="abreviatura" />
+        </property>
+        <property name="orden" type="java.lang.Integer">
+            <column name="orden" />
+        </property>
+        <set name="matriculas" table="matricula" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="estado" />
+            </key>
+            <one-to-many class="com.atlanta.educatic.pojo.Matricula" />
+        </set>
+        <set name="usuarios" table="usuario" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="estado" not-null="true" />
+            </key>
+            <one-to-many class="com.atlanta.educatic.pojo.Usuario" />
+        </set>
+        <set name="cursosForEstado" table="curso" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="estado" />
+            </key>
+            <one-to-many class="com.atlanta.educatic.pojo.Curso" />
+        </set>
+        <set name="estudiantes" table="estudiante" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="estado" />
+            </key>
+            <one-to-many class="com.atlanta.educatic.pojo.Estudiante" />
+        </set>
+        <set name="institucions" table="institucion" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="estado" not-null="true" />
+            </key>
+            <one-to-many class="com.atlanta.educatic.pojo.Institucion" />
+        </set>
+        <set name="permisos" table="permiso" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="estado" not-null="true" />
+            </key>
+            <one-to-many class="com.atlanta.educatic.pojo.Permiso" />
+        </set>
+        <set name="vinculos" table="vinculo" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="estado" not-null="true" />
+            </key>
+            <one-to-many class="com.atlanta.educatic.pojo.Vinculo" />
+        </set>
+        <set name="rendimientos" table="rendimiento" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="estado" />
+            </key>
+            <one-to-many class="com.atlanta.educatic.pojo.Rendimiento" />
+        </set>
+        <set name="usuarioPermisos" table="usuario_permiso" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="estado" not-null="true" />
+            </key>
+            <one-to-many class="com.atlanta.educatic.pojo.UsuarioPermiso" />
+        </set>
+        <set name="docentes" table="docente" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="estado" not-null="true" />
+            </key>
+            <one-to-many class="com.atlanta.educatic.pojo.Docente" />
+        </set>
+        <set name="apoderados" table="apoderado" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="estado" not-null="true" />
+            </key>
+            <one-to-many class="com.atlanta.educatic.pojo.Apoderado" />
+        </set>
+        <set name="tutors" table="tutor" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="estado" />
+            </key>
+            <one-to-many class="com.atlanta.educatic.pojo.Tutor" />
+        </set>
+        <set name="modalidadingresos" table="modalidadingreso" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="estado" />
+            </key>
+            <one-to-many class="com.atlanta.educatic.pojo.Modalidadingreso" />
+        </set>
+        <set name="personas" table="persona" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="estado" not-null="true" />
+            </key>
+            <one-to-many class="com.atlanta.educatic.pojo.Persona" />
+        </set>
+        <set name="cursosForTipoCurso" table="curso" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="tipoCurso" not-null="true" />
+            </key>
+            <one-to-many class="com.atlanta.educatic.pojo.Curso" />
+        </set>
+        <set name="grados" table="grado" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="estado" not-null="true" />
+            </key>
+            <one-to-many class="com.atlanta.educatic.pojo.Grado" />
+        </set>
+        <set name="tareas" table="tarea" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="estado" />
+            </key>
+            <one-to-many class="com.atlanta.educatic.pojo.Tarea" />
+        </set>
+    </class>
+</hibernate-mapping>

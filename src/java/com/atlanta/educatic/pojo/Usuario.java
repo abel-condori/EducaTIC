@@ -1,5 +1,5 @@
 package com.atlanta.educatic.pojo;
-// Generated Jan 13, 2016 4:10:46 PM by Hibernate Tools 4.3.1
+// Generated 14/01/2016 06:39:31 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -14,9 +14,9 @@ public class Usuario  implements java.io.Serializable {
 
      private int id;
      private Persona persona;
+     private Tablamaestra tablamaestra;
      private String usuario;
      private String pasword;
-     private String estado;
      private Date fechaRegistro;
      private Set usuarioPermisos = new HashSet(0);
 
@@ -24,20 +24,20 @@ public class Usuario  implements java.io.Serializable {
     }
 
 	
-    public Usuario(int id, Persona persona, String usuario, String pasword, String estado, Date fechaRegistro) {
+    public Usuario(int id, Persona persona, Tablamaestra tablamaestra, String usuario, String pasword, Date fechaRegistro) {
         this.id = id;
         this.persona = persona;
+        this.tablamaestra = tablamaestra;
         this.usuario = usuario;
         this.pasword = pasword;
-        this.estado = estado;
         this.fechaRegistro = fechaRegistro;
     }
-    public Usuario(int id, Persona persona, String usuario, String pasword, String estado, Date fechaRegistro, Set usuarioPermisos) {
+    public Usuario(int id, Persona persona, Tablamaestra tablamaestra, String usuario, String pasword, Date fechaRegistro, Set usuarioPermisos) {
        this.id = id;
        this.persona = persona;
+       this.tablamaestra = tablamaestra;
        this.usuario = usuario;
        this.pasword = pasword;
-       this.estado = estado;
        this.fechaRegistro = fechaRegistro;
        this.usuarioPermisos = usuarioPermisos;
     }
@@ -56,6 +56,13 @@ public class Usuario  implements java.io.Serializable {
     public void setPersona(Persona persona) {
         this.persona = persona;
     }
+    public Tablamaestra getTablamaestra() {
+        return this.tablamaestra;
+    }
+    
+    public void setTablamaestra(Tablamaestra tablamaestra) {
+        this.tablamaestra = tablamaestra;
+    }
     public String getUsuario() {
         return this.usuario;
     }
@@ -69,13 +76,6 @@ public class Usuario  implements java.io.Serializable {
     
     public void setPasword(String pasword) {
         this.pasword = pasword;
-    }
-    public String getEstado() {
-        return this.estado;
-    }
-    
-    public void setEstado(String estado) {
-        this.estado = estado;
     }
     public Date getFechaRegistro() {
         return this.fechaRegistro;

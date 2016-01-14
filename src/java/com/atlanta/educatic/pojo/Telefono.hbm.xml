@@ -1,26 +1,27 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Jan 13, 2016 4:10:48 PM by Hibernate Tools 4.3.1 -->
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 14/01/2016 06:39:33 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-  <class catalog="colegio" name="com.atlanta.educatic.pojo.Telefono" optimistic-lock="version" table="telefono">
-    <id name="id" type="int">
-      <column name="id"/>
-      <generator class="assigned"/>
-    </id>
-    <many-to-one class="com.atlanta.educatic.pojo.Persona" fetch="select" name="persona">
-      <column name="Persona_id" not-null="true"/>
-    </many-to-one>
-    <property name="denominacion" type="string">
-      <column length="45" name="denominacion"/>
-    </property>
-    <property name="numero" type="string">
-      <column length="12" name="numero" not-null="true"/>
-    </property>
-    <property name="observacion" type="string">
-      <column length="45" name="observacion"/>
-    </property>
-    <property name="estado" type="byte">
-      <column name="estado" not-null="true"/>
-    </property>
-  </class>
+    <class name="com.atlanta.educatic.pojo.Telefono" table="telefono" catalog="colegiodb" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="persona" class="com.atlanta.educatic.pojo.Persona" fetch="select">
+            <column name="Persona_id" not-null="true" />
+        </many-to-one>
+        <property name="denominacion" type="string">
+            <column name="denominacion" length="45" />
+        </property>
+        <property name="numero" type="string">
+            <column name="numero" length="12" not-null="true" />
+        </property>
+        <property name="observacion" type="string">
+            <column name="observacion" length="45" />
+        </property>
+        <property name="estado" type="byte">
+            <column name="estado" not-null="true" />
+        </property>
+    </class>
 </hibernate-mapping>

@@ -1,5 +1,5 @@
 package com.atlanta.educatic.pojo;
-// Generated Jan 13, 2016 4:10:46 PM by Hibernate Tools 4.3.1
+// Generated 14/01/2016 06:39:31 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -12,23 +12,23 @@ public class Permiso  implements java.io.Serializable {
 
 
      private int id;
+     private Tablamaestra tablamaestra;
      private String denominacion;
-     private String estado;
      private Set usuarioPermisos = new HashSet(0);
 
     public Permiso() {
     }
 
 	
-    public Permiso(int id, String denominacion, String estado) {
+    public Permiso(int id, Tablamaestra tablamaestra, String denominacion) {
         this.id = id;
+        this.tablamaestra = tablamaestra;
         this.denominacion = denominacion;
-        this.estado = estado;
     }
-    public Permiso(int id, String denominacion, String estado, Set usuarioPermisos) {
+    public Permiso(int id, Tablamaestra tablamaestra, String denominacion, Set usuarioPermisos) {
        this.id = id;
+       this.tablamaestra = tablamaestra;
        this.denominacion = denominacion;
-       this.estado = estado;
        this.usuarioPermisos = usuarioPermisos;
     }
    
@@ -39,19 +39,19 @@ public class Permiso  implements java.io.Serializable {
     public void setId(int id) {
         this.id = id;
     }
+    public Tablamaestra getTablamaestra() {
+        return this.tablamaestra;
+    }
+    
+    public void setTablamaestra(Tablamaestra tablamaestra) {
+        this.tablamaestra = tablamaestra;
+    }
     public String getDenominacion() {
         return this.denominacion;
     }
     
     public void setDenominacion(String denominacion) {
         this.denominacion = denominacion;
-    }
-    public String getEstado() {
-        return this.estado;
-    }
-    
-    public void setEstado(String estado) {
-        this.estado = estado;
     }
     public Set getUsuarioPermisos() {
         return this.usuarioPermisos;

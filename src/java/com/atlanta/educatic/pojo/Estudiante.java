@@ -1,5 +1,5 @@
 package com.atlanta.educatic.pojo;
-// Generated Jan 13, 2016 4:10:46 PM by Hibernate Tools 4.3.1
+// Generated 14/01/2016 06:39:31 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -14,10 +14,10 @@ public class Estudiante  implements java.io.Serializable {
 
      private int id;
      private Persona persona;
+     private Tablamaestra tablamaestra;
      private Date fechaIngresa;
      private String descripcion;
      private String observacion;
-     private Byte estado;
      private Set matriculas = new HashSet(0);
 
     public Estudiante() {
@@ -28,13 +28,13 @@ public class Estudiante  implements java.io.Serializable {
         this.id = id;
         this.persona = persona;
     }
-    public Estudiante(int id, Persona persona, Date fechaIngresa, String descripcion, String observacion, Byte estado, Set matriculas) {
+    public Estudiante(int id, Persona persona, Tablamaestra tablamaestra, Date fechaIngresa, String descripcion, String observacion, Set matriculas) {
        this.id = id;
        this.persona = persona;
+       this.tablamaestra = tablamaestra;
        this.fechaIngresa = fechaIngresa;
        this.descripcion = descripcion;
        this.observacion = observacion;
-       this.estado = estado;
        this.matriculas = matriculas;
     }
    
@@ -51,6 +51,13 @@ public class Estudiante  implements java.io.Serializable {
     
     public void setPersona(Persona persona) {
         this.persona = persona;
+    }
+    public Tablamaestra getTablamaestra() {
+        return this.tablamaestra;
+    }
+    
+    public void setTablamaestra(Tablamaestra tablamaestra) {
+        this.tablamaestra = tablamaestra;
     }
     public Date getFechaIngresa() {
         return this.fechaIngresa;
@@ -72,13 +79,6 @@ public class Estudiante  implements java.io.Serializable {
     
     public void setObservacion(String observacion) {
         this.observacion = observacion;
-    }
-    public Byte getEstado() {
-        return this.estado;
-    }
-    
-    public void setEstado(Byte estado) {
-        this.estado = estado;
     }
     public Set getMatriculas() {
         return this.matriculas;

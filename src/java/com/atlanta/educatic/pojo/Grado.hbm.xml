@@ -1,50 +1,51 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Jan 13, 2016 4:10:48 PM by Hibernate Tools 4.3.1 -->
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 14/01/2016 06:39:33 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-  <class catalog="colegio" name="com.atlanta.educatic.pojo.Grado" optimistic-lock="version" table="grado">
-    <id name="id" type="int">
-      <column name="id"/>
-      <generator class="assigned"/>
-    </id>
-    <many-to-one class="com.atlanta.educatic.pojo.Matricula" fetch="select" name="matricula">
-      <column name="Matricula_id" not-null="true"/>
-    </many-to-one>
-    <many-to-one class="com.atlanta.educatic.pojo.Tutor" fetch="select" name="tutor">
-      <column name="Tutor_id" not-null="true"/>
-    </many-to-one>
-    <property name="denominacion" type="string">
-      <column length="50" name="denominacion" not-null="true"/>
-    </property>
-    <property name="seccion" type="char">
-      <column length="1" name="seccion" not-null="true"/>
-    </property>
-    <property name="estado" type="byte">
-      <column name="estado" not-null="true"/>
-    </property>
-    <property name="anio" type="date">
-      <column length="10" name="anio" not-null="true"/>
-    </property>
-    <property name="observacion" type="string">
-      <column length="45" name="observacion"/>
-    </property>
-    <property name="turno" type="string">
-      <column length="10" name="turno" not-null="true"/>
-    </property>
-    <property name="maxAlumno" type="byte">
-      <column name="maxAlumno" not-null="true"/>
-    </property>
-    <set fetch="select" inverse="true" lazy="true" name="docenteGrados" table="docente_grado">
-      <key>
-        <column name="Grado_id" not-null="true"/>
-      </key>
-      <one-to-many class="com.atlanta.educatic.pojo.DocenteGrado"/>
-    </set>
-    <set fetch="select" inverse="true" lazy="true" name="gradoCursos" table="grado_curso">
-      <key>
-        <column name="Grado_id" not-null="true"/>
-      </key>
-      <one-to-many class="com.atlanta.educatic.pojo.GradoCurso"/>
-    </set>
-  </class>
+    <class name="com.atlanta.educatic.pojo.Grado" table="grado" catalog="colegiodb" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="matricula" class="com.atlanta.educatic.pojo.Matricula" fetch="select">
+            <column name="Matricula_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tablamaestra" class="com.atlanta.educatic.pojo.Tablamaestra" fetch="select">
+            <column name="estado" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tutor" class="com.atlanta.educatic.pojo.Tutor" fetch="select">
+            <column name="Tutor_id" not-null="true" />
+        </many-to-one>
+        <property name="denominacion" type="string">
+            <column name="denominacion" length="50" not-null="true" />
+        </property>
+        <property name="seccion" type="char">
+            <column name="seccion" length="1" not-null="true" />
+        </property>
+        <property name="anio" type="date">
+            <column name="anio" length="10" not-null="true" />
+        </property>
+        <property name="observacion" type="string">
+            <column name="observacion" length="45" />
+        </property>
+        <property name="turno" type="string">
+            <column name="turno" length="10" not-null="true" />
+        </property>
+        <property name="maxAlumno" type="byte">
+            <column name="maxAlumno" not-null="true" />
+        </property>
+        <set name="gradoCursos" table="grado_curso" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Grado_id" not-null="true" />
+            </key>
+            <one-to-many class="com.atlanta.educatic.pojo.GradoCurso" />
+        </set>
+        <set name="docenteGrados" table="docente_grado" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Grado_id" not-null="true" />
+            </key>
+            <one-to-many class="com.atlanta.educatic.pojo.DocenteGrado" />
+        </set>
+    </class>
 </hibernate-mapping>

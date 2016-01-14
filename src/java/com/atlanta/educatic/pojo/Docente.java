@@ -1,5 +1,5 @@
 package com.atlanta.educatic.pojo;
-// Generated Jan 13, 2016 4:10:46 PM by Hibernate Tools 4.3.1
+// Generated 14/01/2016 06:39:31 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -14,8 +14,8 @@ public class Docente  implements java.io.Serializable {
      private int id;
      private Institucion institucion;
      private Persona persona;
+     private Tablamaestra tablamaestra;
      private String codigo;
-     private byte estado;
      private String observacion;
      private String especilidad;
      private Set docenteGrados = new HashSet(0);
@@ -25,19 +25,19 @@ public class Docente  implements java.io.Serializable {
     }
 
 	
-    public Docente(int id, Institucion institucion, Persona persona, String codigo, byte estado) {
+    public Docente(int id, Institucion institucion, Persona persona, Tablamaestra tablamaestra, String codigo) {
         this.id = id;
         this.institucion = institucion;
         this.persona = persona;
+        this.tablamaestra = tablamaestra;
         this.codigo = codigo;
-        this.estado = estado;
     }
-    public Docente(int id, Institucion institucion, Persona persona, String codigo, byte estado, String observacion, String especilidad, Set docenteGrados, Set horarios) {
+    public Docente(int id, Institucion institucion, Persona persona, Tablamaestra tablamaestra, String codigo, String observacion, String especilidad, Set docenteGrados, Set horarios) {
        this.id = id;
        this.institucion = institucion;
        this.persona = persona;
+       this.tablamaestra = tablamaestra;
        this.codigo = codigo;
-       this.estado = estado;
        this.observacion = observacion;
        this.especilidad = especilidad;
        this.docenteGrados = docenteGrados;
@@ -65,19 +65,19 @@ public class Docente  implements java.io.Serializable {
     public void setPersona(Persona persona) {
         this.persona = persona;
     }
+    public Tablamaestra getTablamaestra() {
+        return this.tablamaestra;
+    }
+    
+    public void setTablamaestra(Tablamaestra tablamaestra) {
+        this.tablamaestra = tablamaestra;
+    }
     public String getCodigo() {
         return this.codigo;
     }
     
     public void setCodigo(String codigo) {
         this.codigo = codigo;
-    }
-    public byte getEstado() {
-        return this.estado;
-    }
-    
-    public void setEstado(byte estado) {
-        this.estado = estado;
     }
     public String getObservacion() {
         return this.observacion;

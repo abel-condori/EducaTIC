@@ -1,32 +1,33 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Jan 13, 2016 4:10:48 PM by Hibernate Tools 4.3.1 -->
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 14/01/2016 06:39:33 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-  <class catalog="colegio" name="com.atlanta.educatic.pojo.Usuario" optimistic-lock="version" table="usuario">
-    <id name="id" type="int">
-      <column name="id"/>
-      <generator class="assigned"/>
-    </id>
-    <many-to-one class="com.atlanta.educatic.pojo.Persona" fetch="select" name="persona">
-      <column name="Persona_id" not-null="true"/>
-    </many-to-one>
-    <property name="usuario" type="string">
-      <column length="50" name="usuario" not-null="true"/>
-    </property>
-    <property name="pasword" type="string">
-      <column length="100" name="pasword" not-null="true"/>
-    </property>
-    <property name="estado" type="string">
-      <column length="45" name="estado" not-null="true"/>
-    </property>
-    <property name="fechaRegistro" type="timestamp">
-      <column length="19" name="fechaRegistro" not-null="true"/>
-    </property>
-    <set fetch="select" inverse="true" lazy="true" name="usuarioPermisos" table="usuario_permiso">
-      <key>
-        <column name="Usuario_id" not-null="true"/>
-      </key>
-      <one-to-many class="com.atlanta.educatic.pojo.UsuarioPermiso"/>
-    </set>
-  </class>
+    <class name="com.atlanta.educatic.pojo.Usuario" table="usuario" catalog="colegiodb" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="persona" class="com.atlanta.educatic.pojo.Persona" fetch="select">
+            <column name="Persona_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tablamaestra" class="com.atlanta.educatic.pojo.Tablamaestra" fetch="select">
+            <column name="estado" not-null="true" />
+        </many-to-one>
+        <property name="usuario" type="string">
+            <column name="usuario" length="50" not-null="true" />
+        </property>
+        <property name="pasword" type="string">
+            <column name="pasword" length="100" not-null="true" />
+        </property>
+        <property name="fechaRegistro" type="timestamp">
+            <column name="fechaRegistro" length="19" not-null="true" />
+        </property>
+        <set name="usuarioPermisos" table="usuario_permiso" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Usuario_id" not-null="true" />
+            </key>
+            <one-to-many class="com.atlanta.educatic.pojo.UsuarioPermiso" />
+        </set>
+    </class>
 </hibernate-mapping>
