@@ -31,7 +31,7 @@ public class GenericResource {
      */
     public GenericResource() {
     }
-
+//eswghfjgaaghjsfg
     /**
      * Retrieves representation of an instance of com.sistemas.educatic.rest.GenericResource
      * @return an instance of java.lang.String
