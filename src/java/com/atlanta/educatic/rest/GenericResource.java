@@ -5,6 +5,8 @@
  */
 package com.atlanta.educatic.rest;
 
+import com.atlanta.educatic.pojo.Persona;
+import com.atlanta.educatic.service.PersonaService;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.PathParam;
@@ -39,9 +41,11 @@ public class GenericResource {
     @GET
     @Path("prueba")
     @Produces(MediaType.APPLICATION_JSON)
-    public String getXml() {
+    public Persona getXml() {
         //TODO return proper representation object
-        return "hola como estas nachitdasdfghfjkddo";
+        Persona oPersona = new PersonaService().read(1);
+        return oPersona;
+        
     }
 
     /**
