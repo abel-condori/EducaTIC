@@ -3,16 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.atlanta.educatic.rest;
+package org.netbeans.rest.application.config;
 
 import java.util.Set;
 import javax.ws.rs.core.Application;
-//abelita  
+
 /**
  *
- * @author Abel
+ * @author Nerio
  */
-@javax.ws.rs.ApplicationPath("webresources")
+@javax.ws.rs.ApplicationPath("services")
 public class ApplicationConfig extends Application {
 
     @Override
@@ -28,8 +28,8 @@ public class ApplicationConfig extends Application {
      * all resources defined in the project.
      * If required, comment out calling this method in getClasses().
      */
-    private void addRestResourceClasses(Set<Class<?>> resources) {
-        resources.add(com.atlanta.educatic.rest.GenericResource.class);
+    private void addRestResourceClasses(Set<Class<?>> resources) {        resources.add(com.atlanta.educatic.rest.PersonaREST.class);
+
     }
     
 }
